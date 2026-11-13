@@ -1,0 +1,41 @@
+{
+  "name": "jev-training",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Building with Jev and System One models: demos for the 3 hands-on projects (playground: demoqa.com/books)",
+  "type": "module",
+  "scripts": {
+    "race": "tsx demos/00-model-race.ts",
+    "edges": "tsx demos/edge-cases.ts",
+    "bench": "tsx scripts/bench.ts",
+    "test": "playwright test",
+    "p1": "playwright test --project=p1-cut-costs",
+    "p2": "playwright test --project=p2-explore",
+    "p3": "playwright test --project=p3-agent",
+    "report": "tsx scripts/report.ts",
+    "dashboard": "tsx scripts/dashboard.ts",
+    "why": "tsx scripts/why.ts",
+    "guide": "tsx scripts/build-guide.ts",
+    "obs:up": "docker compose -f observability/docker-compose.yml up -d",
+    "obs:down": "docker compose -f observability/docker-compose.yml down",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "@opentelemetry/api": "^1.10.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.301.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.301.0",
+    "@opentelemetry/resources": "^3.1.0",
+    "@opentelemetry/sdk-metrics": "^3.1.0",
+    "@opentelemetry/sdk-node": "^0.301.0",
+    "dotenv": "^18.0.10",
+    "openai": "^7.53.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "marked": "^18.1.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0"
+  }
+}

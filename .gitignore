@@ -1,0 +1,13 @@
+node_modules/
+.env
+runs/
+reports/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.playwright-mcp/
+
+# Brand fonts (licensed): copied locally, never committed. Reports embed them when present.
+assets/fonts/
+.DS_Store

@@ -1,0 +1,17 @@
+# Level 3: the Grafana stack (Grafana + Tempo + Prometheus + an OpenTelemetry Collector) in ONE container.
+# All free and open source. Needs Docker (or Podman).
+#
+#   npm run obs:up        then open http://localhost:3000  (login admin / admin)
+#   npm run obs:down
+#
+# Then set OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 in .env and run any demo.
+services:
+  lgtm:
+    image: grafana/otel-lgtm:latest
+    ports:
+      - "3000:3000" # Grafana
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP (what our code uses)
+    volumes:
+      - ./grafana/jev-training-dashboard.json:/otel-lgtm/grafana/conf/provisioning/dashboards/custom/jev-training-dashboard.json:ro
+      - ./grafana/dashboards-provisioning.yaml:/otel-lgtm/grafana/conf/provisioning/dashboards/custom.yaml:ro
